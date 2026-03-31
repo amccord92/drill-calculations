@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🔧 Drill Calculator</h1>
+        <p class="subtitle">Tap Drill Sizes · Decimal Equivalents · Pipe Threads</p>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab active" data-tab="tap-drill">Tap Drill</button>
+        <button class="tab" data-tab="decimal">Decimal Equiv</button>
+        <button class="tab" data-tab="pipe">Pipe Thread</button>
+        <button class="tab" data-tab="search">Search</button>
+    </nav>
+
+    <main>
+        <!-- Tap Drill Size Tab -->
+        <section id="tap-drill" class="tab-content active">
+            <div class="input-group">
+                <label for="thread-type">Thread Type</label>
+                <select id="thread-type">
+                    <option value="unc">UNC (Coarse)</option>
+                    <option value="unf">UNF (Fine)</option>
+                    <option value="metric">Metric</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="thread-size">Thread Size</label>
+                <select id="thread-size">
+                    <option value="">Select thread type first</option>
+                </select>
+            </div>
+            <div id="tap-result" class="result-card hidden">
+                <h3>Recommended Tap Drill</h3>
+                <div class="result-value" id="tap-drill-size"></div>
+                <div class="result-detail" id="tap-drill-decimal"></div>
+                <div class="result-detail" id="tap-drill-percent"></div>
+            </div>
+        </section>
+
+        <!-- Decimal Equivalents Tab -->
+        <section id="decimal" class="tab-content">
+            <div class="input-group">
+                <label for="drill-type">Drill Size Type</label>
+                <select id="drill-type">
+                    <option value="fraction">Fractional (inches)</option>
+                    <option value="number">Number (#)</option>
+                    <option value="letter">Letter (A-Z)</option>
+                    <option value="metric-mm">Metric (mm)</option>
+                </select>
+            </div>
+            <div class="input-group" id="fraction-input-group">
+                <label for="fraction-size">Fraction</label>
+                <select id="fraction-size"></select>
+            </div>
+            <div class="input-group hidden" id="number-input-group">
+                <label for="number-size">Number Drill</label>
+                <select id="number-size"></select>
+            </div>
+            <div class="input-group hidden" id="letter-input-group">
+                <label for="letter-size">Letter Drill</label>
+                <select id="letter-size"></select>
+            </div>
+            <div class="input-group hidden" id="metric-input-group">
+                <label for="metric-size">Metric Size (mm)</label>
+                <input type="number" id="metric-size" step="0.01" min="0.1" max="100" placeholder="e.g. 6.5">
+            </div>
+            <div id="decimal-result" class="result-card hidden">
+                <h3>Decimal Equivalent</h3>
+                <div class="result-value" id="decimal-value"></div>
+                <div class="result-detail" id="decimal-mm"></div>
+            </div>
+        </section>
+
+        <!-- Pipe Thread Tab -->
+        <section id="pipe" class="tab-content">
+            <div class="input-group">
+                <label for="pipe-type">Pipe Thread Type</label>
+                <select id="pipe-type">
+                    <option value="npt">NPT (Tapered)</option>
+                    <option value="nps">NPS (Straight)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="pipe-size">Pipe Size</label>
+                <select id="pipe-size"></select>
+            </div>
+            <div id="pipe-result" class="result-card hidden">
+                <h3>Pipe Thread Drill</h3>
+                <div class="result-value" id="pipe-drill-size"></div>
+                <div class="result-detail" id="pipe-tpi"></div>
+                <div class="result-detail" id="pipe-od"></div>
+            </div>
+        </section>
+
+        <!-- Search Tab -->
+        <section id="search" class="tab-content">
+            <div class="input-group">
+                <label for="search-input">Search drill sizes</label>
+                <input type="text" id="search-input" placeholder="e.g. 1/4-20, #7, 6.5mm, letter F">
+            </div>
+            <div id="search-results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built by HECTOR for ARMON 🔧⚡</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
